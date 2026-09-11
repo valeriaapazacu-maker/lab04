@@ -13,14 +13,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,14 +40,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MovieCounter(modifier: Modifier = Modifier) {
-    val count = 0
+    var count by remember { mutableStateOf(0) }
     Column(
         modifier = modifier.padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "You have added $count movies.")
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { /* Acción del botón */ }) {
+        Button(onClick = { count++ }) {
             Text("Add Movie")
         }
     }
@@ -57,18 +57,4 @@ fun MovieCounter(modifier: Modifier = Modifier) {
 @Composable
 fun PreviewMovieCounter() {
     MovieCounter()
-}
-@Composable
-fun MovieTitle() {
-    Text(text = "Movie Counter App", style = MaterialTheme.typography.headlineMedium)
-}
-@Composable
-fun MovieFooter() {
-    Text(text = "App created for Lab 04")
-}
-@Composable
-fun MovieDescriptionCard() {
-    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
-        Text(text = "Track your favorite movies easily.")
-    }
 }
