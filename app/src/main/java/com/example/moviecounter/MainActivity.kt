@@ -62,3 +62,7 @@ fun PreviewMovieCounter() {
 fun MovieTitle() {
     Text(text = "Movie Counter App", style = MaterialTheme.typography.headlineMedium)
 }
+@Composable
+fun MovieFooter() {
+    Text(text = "App created for Lab 04")
+}
