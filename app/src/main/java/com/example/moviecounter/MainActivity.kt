@@ -66,3 +66,9 @@ fun MovieTitle() {
 fun MovieFooter() {
     Text(text = "App created for Lab 04")
 }
+@Composable
+fun MovieDescriptionCard() {
+    Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
+        Text(text = "Track your favorite movies easily.")
+    }
+}
